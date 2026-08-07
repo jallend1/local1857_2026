@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "jason1857/event-cards",
+  "title": "Upcoming Events",
+  "category": "widgets",
+  "icon": "media-document",
+  "description": "Shows the next three events from the public Google Calendar feed.",
+  "textdomain": "jason1857",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

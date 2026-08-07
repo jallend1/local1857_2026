@@ -1,0 +1,1022 @@
+:root {
+  /* Colors — from theme.json color.palette */
+  --cream: var(--wp--preset--color--cream);
+  --cream-2: var(--wp--preset--color--cream-2);
+  --paper: var(--wp--preset--color--paper);
+  --ink: var(--wp--preset--color--ink);
+  --ink-2: var(--wp--preset--color--ink-2);
+  --muted: var(--wp--preset--color--muted);
+  --rule: var(--wp--preset--color--rule);
+  --green: var(--wp--preset--color--green);
+  --green-deep: var(--wp--preset--color--green-deep);
+  --green-darker: var(--wp--preset--color--green-darker);
+  --blue: var(--wp--preset--color--blue);
+  --blue-deep: var(--wp--preset--color--blue-deep);
+  --blue-darker: var(--wp--preset--color--blue-darker);
+  --burgundy: var(--wp--preset--color--burgundy);
+  --burgundy-deep: var(--wp--preset--color--burgundy-deep);
+  --gold: var(--wp--preset--color--gold);
+
+  /* Shadows — from theme.json shadow.presets */
+  --shadow-sm: var(--wp--preset--shadow--sm);
+  --shadow-md: var(--wp--preset--shadow--md);
+  --shadow-lg: var(--wp--preset--shadow--lg);
+
+  /* Radii — from theme.json settings.custom.radius */
+  --radius-sm: var(--wp--custom--radius--sm);
+  --radius: var(--wp--custom--radius--base);
+  --radius-lg: var(--wp--custom--radius--lg);
+
+  /* Layout — from theme.json settings.custom */
+  --container: var(--wp--custom--container);
+  --gutter: var(--wp--custom--gutter);
+
+  /* Type — from theme.json typography.fontFamilies */
+  --font-display: var(--wp--preset--font-family--display);
+  --font-body: var(--wp--preset--font-family--body);
+  --font-mono: var(--wp--preset--font-family--mono);
+
+  /* Font Sizes — from theme.json typography.fontSizes */
+  --font-xs: var(--wp--preset--font-size--xs);
+  --font-sm: var(--wp--preset--font-size--sm);
+  --font-base: var(--wp--preset--font-size--base);
+  --font-md: var(--wp--preset--font-size--md);
+  --font-lg: var(--wp--preset--font-size--lg);
+  --font-xl: var(--wp--preset--font-size--xl);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ******************** */
+/* *    Buttons       * */
+/* ******************** */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-green {
+  background: var(--green);
+  color: white;
+  box-shadow: var(--wp--preset--shadow--btn-green);
+}
+.btn-green:hover {
+  background: var(--green-deep);
+  box-shadow: 0 6px 0 var(--green-darker);
+}
+.btn-green:active {
+  box-shadow: 0 2px 0 var(--green-darker);
+}
+
+.btn-blue {
+  background: var(--blue);
+  color: white;
+  box-shadow: var(--wp--preset--shadow--btn-blue);
+}
+.btn-blue:hover {
+  background: var(--blue-deep);
+  box-shadow: 0 6px 0 var(--blue-darker);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 2px solid var(--cream);
+  padding: 12px 22px;
+  box-shadow: none;
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 13px;
+}
+.btn-lg {
+  padding: 18px 32px;
+  font-size: 17px;
+}
+/* ****************************************************************************** */
+/* TODO: Duplicating btn btn-sm and btn-blue styles for section and strip buttons */
+/* ****************************************************************************** */
+.section-buttons > .wp-block-button > .wp-block-button__link,
+.strip
+  > .wp-block-group
+  > .wp-block-buttons
+  > .wp-block-button
+  > .wp-block-button__link {
+  background: var(--blue);
+  color: white;
+  /* box-shadow: var(--wp--preset--shadow--btn-blue); */
+  box-shadow: none;
+  padding: 9px 18px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+  white-space: nowrap;
+}
+
+.strip
+  > .wp-block-group
+  > .wp-block-buttons
+  > .wp-block-button
+  > .wp-block-button__link {
+  background: var(--green);
+}
+
+.section-buttons > .wp-block-button > .wp-block-button__link:hover {
+  background: var(--blue-deep);
+  /* box-shadow: 0 6px 0 var(--blue-darker); */
+}
+
+/* .hero {
+  position: relative;
+} */
+
+/* *********************** */
+/* *       Header        * */
+/* *********************** */
+
+.site-header__inner {
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background: var(--cream);
+  max-height: 80px;
+}
+
+.site-header__brand {
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-header__badge img {
+  border-radius: 50%;
+}
+
+.site-header__wordmark {
+  gap: 0;
+}
+
+.site-header__eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--green);
+}
+
+.site-header__title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue-darker);
+}
+
+.site-header__nav {
+  gap: 1.75rem;
+}
+
+.site-header__nav a {
+  color: var(--blue-darker);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* WordPress adds this class automatically to the nav item matching the current page */
+.site-header__nav .current-menu-item > a,
+.site-header__nav
+  .wp-block-navigation-item.current-menu-item
+  > .wp-block-navigation-item__content {
+  color: var(--blue);
+  font-weight: 700;
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 4px;
+}
+
+.site-header__actions {
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-header__search .wp-block-search__button {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.site-header__join .wp-block-button__link {
+  background: var(--green);
+  border-radius: 999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Style the hamburger toggle to match your palette */
+.site-header__nav .wp-block-navigation__toggle-button svg,
+.site-header__nav .wp-block-navigation-toggle svg {
+  color: var(--blue-darker);
+}
+
+/* Style the fullscreen overlay menu that opens on mobile */
+.site-header__nav .wp-block-navigation__responsive-dialog {
+  background: var(--cream);
+}
+
+.site-header__nav
+  .wp-block-navigation__responsive-container.is-menu-open
+  .wp-block-navigation-item
+  a {
+  color: var(--blue-darker);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.hero--main {
+  background: var(--blue-darker);
+  color: var(--cream);
+  padding: 0;
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(0, 158, 87, 0.18),
+      transparent 60%
+    ),
+    var(--blue-darker);
+
+  .hero-grid {
+    margin: auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    /* min-height: 580px; */
+  }
+
+  .hero-text {
+    padding: 80px var(--gutter) 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--green);
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0 0 28px;
+    color: var(--cream);
+
+    .accent {
+      color: var(--green);
+      display: block;
+    }
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.5;
+    color: rgba(245, 241, 232, 0.85);
+    max-width: 480px;
+    /* margin: 0 0 40px; */
+    padding: 1rem 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-stats {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(245, 241, 232, 0.15);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.hero--main .hero-image-wrap {
+  position: relative;
+  background: var(--green-darker);
+  overflow: hidden;
+}
+
+.hero--main .hero-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 90, 48, 0.45),
+    rgba(8, 38, 88, 0.25)
+  );
+  mix-blend-mode: multiply;
+}
+
+.hero--main .hero-image {
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
+  object-fit: cover;
+  filter: contrast(1.1) saturate(1.1);
+}
+
+/* TODO: Clean this up, I was suffering from madness and over-targeted things */
+.hero--main .hero-image-wrap,
+.hero--main .hero-image-wrap figure,
+.hero--main .hero-image-wrap img {
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.hero--main .hero-image-wrap img {
+  width: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) saturate(1.1);
+}
+
+.hero--main.is-layout-constrained
+  > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.hero--main
+  .is-layout-constrained
+  > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: 1920px;
+  /* margin-left: 0 !important;
+  margin-right: 0 !important; */
+  margin: auto;
+}
+
+/* TODO: The madness is contained between this and the previous comment */
+
+.section-sub-container {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* TODO: Feels pretty specific! Likely a theme.json modification here that would be better */
+  .wp-block-buttons {
+    margin-block-start: 0;
+  }
+}
+
+.section-header {
+  width: 100%;
+  gap: 0rem;
+  padding-bottom: 0;
+}
+
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background: var(--green);
+  display: inline-block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--blue-darker);
+  margin: 0;
+}
+
+.news-list-grid-item li .news-card {
+  padding: 1rem;
+  height: auto;
+}
+
+.news-grid,
+.contact-cards {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 1rem 1rem 1rem;
+}
+
+section > div {
+  width: 100%;
+}
+
+.news-grid ul {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 28px;
+}
+
+.news-card {
+  background: var(--paper);
+  border-radius: var(--radius);
+  /* overflow: hidden; */
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  height: 600px;
+  padding: 0;
+
+  h2 a {
+    color: var(--ink-2);
+    font-size: var(--font-md);
+  }
+
+  p {
+    font-size: var(--font-sm);
+  }
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--green);
+}
+
+.news-card-header {
+  height: 200px;
+  padding: 0;
+
+  figure {
+    height: 100%;
+  }
+}
+
+/* Custom style to emphasize first news item */
+.news-grid > ul > li:first-child > div {
+  h2 a {
+    font-size: var(--font-lg);
+  }
+
+  .news-card-header {
+    height: 80%;
+  }
+
+  figure:has(.news-card-image-placeholder),
+  .news-card-image-placeholder {
+    height: 100%;
+  }
+}
+
+.news-card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-card-placeholder-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.news-card-category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--green);
+  color: white;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  margin: 0;
+}
+
+.news-card-text {
+  padding: 0 1rem;
+}
+
+a.news-grid-read-more {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--green);
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.strip {
+  margin: 0;
+  padding: 0 1rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-sm);
+
+  div:first-child {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.contact-card-row {
+  align-items: stretch;
+}
+
+/* TODO: Duplicative styling with .news-card */
+.contact-card {
+  background: var(--paper);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-card-image {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius);
+}
+
+.contact-card-text {
+  font-size: var(--font-sm);
+}
+
+/* TODO: Styling mostly the same as .news-card-link  */
+.contact-card-link {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--green);
+}
+
+.jason1857-event-cards {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch; /* override WordPress's default flex alignment */
+}
+
+.jason1857-event-cards .event-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.jason1857-event-cards .event-title {
+  margin-top: auto;
+}
+
+.jason1857-event-cards {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+  padding-bottom: 1rem;
+}
+
+.event-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-radius: var(--radius);
+  /* overflow: hidden; */
+  box-shadow: var(--shadow-sm);
+}
+
+.event-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: var(--blue-darker);
+  color: var(--cream);
+  padding: 1rem 1.25rem;
+}
+
+.event-card__date {
+  display: flex;
+  align-items: stretch; /* was: baseline */
+  gap: 0.5rem;
+}
+
+.event-card__day {
+  display: flex;
+  align-items: center; /* vertically centers the big number within the stretched height */
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.event-card__month-year {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers Jul/2026 vertically to match */
+  line-height: 1.2;
+}
+
+.event-card__month {
+  font-weight: 700;
+  font-size: var(--font-sm);
+}
+
+.event-card__year {
+  font-size: var(--font-sm);
+  opacity: 0.7;
+}
+
+.event-card__time {
+  align-self: flex-start;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  white-space: nowrap;
+  background: var(--blue);
+}
+
+.event-card__accent {
+  height: 3px;
+  background: var(--green);
+}
+
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.event-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.event-card__description {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--ink-2);
+  flex: 1;
+}
+
+.event-card__footer {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.event-card__meta {
+  display: flex;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.event-card__icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--green);
+}
+
+/* *************************** */
+/* *     Contract Cards      * */
+/* *************************** */
+
+.jason1857-contract-cards {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.contract-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  /* border-top: 4px solid var(--contract-accent); */
+  background: var(--contract-accent);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.contract-card__eyebrow {
+  margin: 0 0 0.25rem;
+  /* font-size: 0.75rem; */
+  font-size: var(--font-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* color: var(--contract-accent); */
+  color: var(--cream);
+  opacity: 0.85;
+}
+
+.contract-card__title {
+  margin: 0 0 0.75rem;
+  /* font-size: var(--font-xl); */
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.contract-card__subheading {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.contract-card__excerpt {
+  margin: 0;
+  font-size: 0.9rem;
+  /* color: #333; */
+  color: var(--cream);
+  flex: 1;
+  opacity: 0.85;
+}
+
+.contract-card__separator {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.contract-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  /* color: var(--contract-accent); */
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.contract-card__link:hover {
+  text-decoration: underline;
+}
+
+.contract-card__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* **************************** */
+/* *      Media Queries       * */
+/* **************************** */
+
+@media (max-width: 600px) {
+  .site-header__inner {
+    padding: 0.65rem 1rem;
+    flex-wrap: nowrap;
+  }
+
+  /* Shrink the brand cluster so it doesn't crowd the hamburger + actions */
+  .site-header__eyebrow {
+    display: none; /* reclaim vertical space; wordmark alone is enough at this size */
+  }
+
+  .site-header__title {
+    font-size: 1.05rem;
+  }
+
+  .site-header__badge img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Tighten the actions cluster */
+  .site-header__actions {
+    gap: 0.4rem;
+  }
+
+  /* Drop the search icon on the smallest screens to leave room for hamburger + Join;
+       search is still reachable via the main Search page/menu if you add one */
+  .site-header__search {
+    display: none;
+  }
+
+  .site-header__join .wp-block-button__link {
+    padding: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
+.subpage-hero {
+  padding: 0 1rem;
+}
+
+.news-list-grid {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.news-single__media {
+  .news-card-image-placeholder {
+    height: 400px;
+  }
+}
+
+.news-single__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.news-single__prev,
+.news-single__next {
+  margin-top: 2rem;
+}
+
+/* Slightly wider breakpoint: keep search visible, just tighten spacing */
+@media (min-width: 601px) and (max-width: 782px) {
+  .site-header__inner {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .site-header__nav {
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .hero--main .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero--main .hero-image-wrap {
+    min-height: 280px;
+    order: -1;
+  }
+  .hero--main .hero-text {
+    padding: 56px var(--gutter);
+  }
+  .hero--main .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .hero--main .hero-title {
+    padding: 1rem;
+  }
+
+  .news-grid ul {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card-header {
+    height: 30%;
+  }
+
+  .event-card,
+  .contact-card,
+  .contract-card {
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .contact-card-row,
+  .jason1857-event-cards,
+  .jason1857-contract-cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "jason1857/contract-cards",
+  "title": "Contract Cards",
+  "category": "widgets",
+  "icon": "media-document",
+  "description": "Shows contract cards for the homepage.",
+  "textdomain": "jason1857",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "local1857/local1857events",
+  "version": "0.5.0",
+  "title": "Local 1857 Events Block",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Google Calendar integration for Local 1857 events",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "local1857events",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,41 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.local1857-events-block {
+	width: 100%;
+}
+
+.local1857-events-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 20px;
+
+	p {
+		margin: 0.75rem 0;
+	}
+
+	.local1857-menu-card__title {
+		color: var(--wp--preset--color--kcls-voice-black);
+		font-size: 1.75rem;
+		margin: 0;
+	}
+
+	img {
+		max-width: 100px;
+		max-height: 100px;
+		background-color: var(--wp--preset--color--kcls-voice-blue);
+		padding: 3rem;
+		border-radius: 30%;
+	}
+
+	.local1857-menu-card-time {
+		font-weight: bold;
+	}
+}

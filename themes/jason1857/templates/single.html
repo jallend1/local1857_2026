@@ -1,0 +1,76 @@
+<!-- wp:template-part {"slug":"header","theme":"jason1857","tagName":"div"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"},"margin":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"}}},"layout":{"type":"constrained"}} -->
+<main
+  class="wp-block-group"
+  style="
+    margin-top: var(--wp--preset--spacing--0);
+    margin-bottom: var(--wp--preset--spacing--0);
+    padding-top: var(--wp--preset--spacing--0);
+    padding-bottom: var(--wp--preset--spacing--0);
+  "
+>
+  <!-- wp:group {"tagName":"section","align":"full","className":"subpage-hero","style":{"background":{"backgroundImage":{"url":"/wp-content/themes/jason1857/assets/images/backgrounds/megaphone.jpg","source":"file","title":"Red and white megaphone on blue background."},"backgroundPosition":"100% 50%","backgroundSize":"contain","backgroundAttachment":"scroll","backgroundRepeat":"no-repeat"}},"backgroundColor":"blue-darker","layout":{"type":"constrained"}} -->
+  <section
+    class="wp-block-group alignfull subpage-hero has-blue-darker-background-color has-background"
+  >
+    <!-- wp:group {"className":"container","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group container">
+      <!-- wp:paragraph {"className":"crumbs","style":{"elements":{"link":{"color":{"text":"var:preset|color|rule"}}}},"textColor":"rule"} -->
+      <p class="crumbs has-rule-color has-text-color has-link-color">
+        <a href="/">Home</a> / News
+      </p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:heading {"level":1,"className":"subpage-title","style":{"elements":{"link":{"color":{"text":"var:preset|color|green"}}}},"textColor":"green","fontSize":"lg"} -->
+      <h1
+        class="wp-block-heading subpage-title has-green-color has-text-color has-link-color has-lg-font-size"
+      >
+        Union News &amp; Missives
+      </h1>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph {"className":"subpage-intro has-paper-color has-blue-darker-background-color has-text-color has-link-color has-sm-font-size","style":{"typography":{"textAlign":"left"}},"fontSize":"sm"} -->
+      <p
+        class="has-text-align-left subpage-intro has-paper-color has-blue-darker-background-color has-text-color has-link-color has-sm-font-size"
+      >
+        Bargaining updates, branch dispatches, action alerts, and notes from
+        your Eboard.
+      </p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+  </section>
+  <!-- /wp:group -->
+
+  <!-- wp:group {"tagName":"section","className":"section","layout":{"type":"constrained"}} -->
+  <section class="wp-block-group section">
+    <!-- wp:group {"className":"container","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group container">
+      <!-- wp:group {"tagName":"article","className":"news-single","layout":{"type":"constrained"}} -->
+      <article class="wp-block-group news-single">
+        <!-- wp:post-terms {"term":"category","className":"news-single__category"} /-->
+
+        <!-- wp:post-title {"level":1,"className":"news-single__title"} /-->
+
+        <!-- wp:post-date {"format":"F j, Y","metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"className":"news-single__date"} /-->
+
+        <!-- wp:post-featured-image {"className":"news-single__media"} /-->
+
+        <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+        <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+        <div class="wp-block-group">
+          <!-- wp:post-navigation-link {"type":"previous","label":"Previous","className":"news-single__prev"} /-->
+
+          <!-- wp:post-navigation-link {"label":"Next","className":"news-single__next"} /-->
+        </div>
+        <!-- /wp:group -->
+      </article>
+      <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+  </section>
+  <!-- /wp:group -->
+</main>
+<!-- /wp:group -->

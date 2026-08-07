@@ -1,0 +1,103 @@
+.local1857-latest-news-block {
+	width: 100%;
+}
+
+.local1857-news-image {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	max-height: 175px;
+	background-color: var(--wp--preset--color--kcls-voice-black);
+
+	img {
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
+.local1857-recent-posts {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+	margin: 0 auto;
+
+	@media (max-width: 1200px) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+
+		.local1857-news-card:nth-child(4) {
+			display: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+
+		.local1857-news-card:nth-child(n+2) {
+			display: none;
+		}
+	}
+}
+
+.local1857-news-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: solid 1px rgba(0, 0, 0, 0.1);
+	border-radius: 0.5rem;
+	padding: 1rem;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.4);
+
+	header {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-bottom: 1rem;
+		border-bottom: var(--wp--preset--color--kcls-voice-green) 2px solid;
+	}
+
+	p {
+		margin: 0.75rem 0;
+	}
+
+	h3 {
+		color: var(--wp--preset--color--kcls-voice-black);
+		font-size: 1.25rem;
+		margin: 0;
+		text-align: left;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.local1857-recent-post-time {
+		font-size: 0.75rem;
+		color: var(--wp--preset--color--kcls-voice-black);
+		opacity: 0.6;
+	}
+
+	.local1857-recent-post-expanded p {
+		font-size: 0.875rem;
+	}
+
+	.local1857-read-more-section {
+		display: flex;
+		justify-content: center;
+	}
+
+	.local1857-read-more {
+		font-size: 0.75rem;
+		background-color: var(--wp--preset--color--kcls-voice-white);
+		color: var(--wp--preset--color--kcls-voice-green);
+		border: solid 1px var(--wp--preset--color--kcls-voice-green);
+		margin: auto;
+		text-align: center;
+		transition: 0.5s;
+	}
+
+	.local1857-read-more:hover {
+		background-color: var(--wp--preset--color--kcls-voice-green);
+		color: var(--wp--preset--color--kcls-voice-white);
+	}
+}
