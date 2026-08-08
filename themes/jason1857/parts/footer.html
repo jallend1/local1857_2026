@@ -1,53 +1,94 @@
-<!-- wp:group {"className":"site-footer","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group site-footer">
-  <!-- wp:group {"className":"site-footer__brand","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group site-footer__brand">
-    <!-- wp:image {"className":"site-footer__badge"} -->
-    <figure class="wp-block-image site-footer__badge"><img alt="" /></figure>
-    <!-- /wp:image -->
-  </div>
-  <!-- /wp:group -->
+<!-- wp:group {"className":"site-footer","backgroundColor":"blue-deep","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div
+  class="wp-block-group site-footer has-blue-deep-background-color has-background"
+>
+  <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+  <div class="wp-block-group">
+    <!-- wp:group {"className":"site-footer__brand","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group site-footer__brand">
+      <!-- wp:image {"className":"site-footer__badge"} -->
+      <figure class="wp-block-image site-footer__badge">
+        <img
+          src="/wp-content/themes/jason1857/assets/images/local-1857-logo.png"
+          alt="Local 1857 Logo"
+        />
+      </figure>
+      <!-- /wp:image -->
+    </div>
+    <!-- /wp:group -->
 
-  <!-- wp:group {"className":"site-footer__brand","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group site-footer__brand">
-    <!-- wp:heading {"className":"site-footer__heading"} -->
-    <h2 class="wp-block-heading site-footer__heading">Local 1857</h2>
-    <!-- /wp:heading -->
+    <!-- wp:group {"className":"site-footer__brand","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group site-footer__brand">
+      <!-- wp:heading {"className":"site-footer__heading","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream-2"}}}},"textColor":"cream-2"} -->
+      <h2
+        class="wp-block-heading site-footer__heading has-cream-2-color has-text-color has-link-color"
+      >
+        Local 1857
+      </h2>
+      <!-- /wp:heading -->
 
-    <!-- wp:paragraph {"className":"site-footer__mailing"} -->
-    <p class="site-footer__mailing">PO Box 3056<br />Issaquah, WA 98027</p>
-    <!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"site-footer__mailing","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream"}}}},"textColor":"cream"} -->
+      <p
+        class="site-footer__mailing has-cream-color has-text-color has-link-color"
+      >
+        PO Box 3056<br />Issaquah, WA 98027
+      </p>
+      <!-- /wp:paragraph -->
 
-    <!-- wp:paragraph {"className":"site-footer__email"} -->
-    <p class="site-footer__email">eboard@kclsvoice.org</p>
-    <!-- /wp:paragraph -->
+      <!-- wp:paragraph {"className":"site-footer__email","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream"}}}},"textColor":"cream"} -->
+      <p
+        class="site-footer__email has-cream-color has-text-color has-link-color"
+      >
+        eboard@kclsvoice.org
+      </p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
   </div>
   <!-- /wp:group -->
 
   <!-- wp:group {"layout":{"type":"constrained"}} -->
-  <div class="wp-block-group"><!-- wp:navigation {"ref":17428} /--></div>
+  <div class="wp-block-group">
+    <!-- wp:navigation {"ref":17428,"textColor":"cream"} /-->
+  </div>
   <!-- /wp:group -->
 
   <!-- wp:group {"className":"site-footer__affiliations","layout":{"type":"constrained"}} -->
   <div class="wp-block-group site-footer__affiliations">
-    <!-- wp:heading {"className":"site-footer__affiliation_heading"} -->
-    <h2 class="wp-block-heading site-footer__affiliation_heading">
-      Affiliated With
+    <!-- wp:heading {"className":"site-footer__affiliation_heading","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream-2"}}}},"textColor":"cream-2"} -->
+    <h2
+      class="wp-block-heading site-footer__affiliation_heading has-cream-2-color has-text-color has-link-color"
+    >
+      Proudly Affiliated With
     </h2>
     <!-- /wp:heading -->
 
-    <!-- wp:group {"className":"site-footer__affiliates","layout":{"type":"constrained"}} -->
+    <!-- wp:group {"className":"site-footer__affiliates","layout":{"type":"flex","flexWrap":"nowrap"}} -->
     <div class="wp-block-group site-footer__affiliates">
-      <!-- wp:image -->
-      <figure class="wp-block-image"><img alt="" /></figure>
+      <!-- wp:image {"lightbox":{"enabled":false},"linkDestination":"custom","className":"site-footer__affiliate_logo"} -->
+      <figure class="wp-block-image site-footer__affiliate_logo">
+        <a href="https://www.council2.com/"
+          ><img
+            src="/wp-content/themes/jason1857/assets/images/Council2Logo.png"
+            alt="Council 2 Logo"
+        /></a>
+      </figure>
       <!-- /wp:image -->
 
-      <!-- wp:image -->
-      <figure class="wp-block-image"><img alt="" /></figure>
+      <!-- wp:image {"lightbox":{"enabled":false},"linkDestination":"custom","className":"site-footer__affiliate_logo","style":{"layout":{"selfStretch":"fixedNoShrink","flexSize":"90px"}}} -->
+      <figure class="wp-block-image site-footer__affiliate_logo">
+        <a href="https://afscme.org/"
+          ><img
+            src="/wp-content/themes/jason1857/assets/images/AFSCME.svg"
+            alt="AFSCME Logo"
+        /></a>
+      </figure>
       <!-- /wp:image -->
 
-      <!-- wp:image -->
-      <figure class="wp-block-image"><img alt="" /></figure>
+      <!-- wp:image {"className":"site-footer__affiliate_logo"} -->
+      <figure class="wp-block-image site-footer__affiliate_logo">
+        <img alt="" />
+      </figure>
       <!-- /wp:image -->
     </div>
     <!-- /wp:group -->

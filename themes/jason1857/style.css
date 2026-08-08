@@ -891,6 +891,45 @@ a.news-grid-read-more {
   height: 16px;
 }
 
+/* ***************************** */
+/* *       Site Footer        * */
+/* ***************************** */
+
+.site-footer {
+  color: var(--cream);
+  padding: 2rem 1rem;
+}
+
+.site-footer__badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  max-width: 120px;
+}
+
+.site-footer__affiliation_heading {
+  text-align: center;
+}
+
+.site_footer__affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-footer__affiliate_logo {
+  min-width: 80px;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+
+  img {
+    min-width: 80px;
+  }
+}
+
 /* **************************** */
 /* *      Media Queries       * */
 /* **************************** */
