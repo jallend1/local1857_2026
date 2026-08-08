@@ -1,6 +1,12 @@
-<!-- wp:group {"className":"site-footer","backgroundColor":"blue-deep","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"className":"site-footer","style":{"spacing":{"margin":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"},"padding":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"}}},"backgroundColor":"blue-deep","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div
   class="wp-block-group site-footer has-blue-deep-background-color has-background"
+  style="
+    margin-top: var(--wp--preset--spacing--0);
+    margin-bottom: var(--wp--preset--spacing--0);
+    padding-top: var(--wp--preset--spacing--0);
+    padding-bottom: var(--wp--preset--spacing--0);
+  "
 >
   <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
   <div class="wp-block-group">
@@ -27,17 +33,17 @@
       </h2>
       <!-- /wp:heading -->
 
-      <!-- wp:paragraph {"className":"site-footer__mailing","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream"}}}},"textColor":"cream"} -->
+      <!-- wp:paragraph {"className":"site-footer__mailing","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream"}}}},"textColor":"cream","fontSize":"sm"} -->
       <p
-        class="site-footer__mailing has-cream-color has-text-color has-link-color"
+        class="site-footer__mailing has-cream-color has-text-color has-link-color has-sm-font-size"
       >
         PO Box 3056<br />Issaquah, WA 98027
       </p>
       <!-- /wp:paragraph -->
 
-      <!-- wp:paragraph {"className":"site-footer__email","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream"}}}},"textColor":"cream"} -->
+      <!-- wp:paragraph {"className":"site-footer__email","style":{"elements":{"link":{"color":{"text":"var:preset|color|cream"}}}},"textColor":"cream","fontSize":"sm"} -->
       <p
-        class="site-footer__email has-cream-color has-text-color has-link-color"
+        class="site-footer__email has-cream-color has-text-color has-link-color has-sm-font-size"
       >
         eboard@kclsvoice.org
       </p>
@@ -82,12 +88,6 @@
             src="/wp-content/themes/jason1857/assets/images/AFSCME.svg"
             alt="AFSCME Logo"
         /></a>
-      </figure>
-      <!-- /wp:image -->
-
-      <!-- wp:image {"className":"site-footer__affiliate_logo"} -->
-      <figure class="wp-block-image site-footer__affiliate_logo">
-        <img alt="" />
       </figure>
       <!-- /wp:image -->
     </div>
