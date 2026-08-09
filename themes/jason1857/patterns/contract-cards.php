@@ -24,15 +24,7 @@
             <p class="section-sub has-sm-font-size">Your contract is the foundation of your rights at work. Read the agreement that covers your bargaining unit.</p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:buttons {"className":"section-buttons"} -->
-                <div class="wp-block-buttons section-buttons">
-                    <!-- wp:button -->
-                    <div class="wp-block-button">
-                        <a class="wp-block-button__link wp-element-button">View Contracts  →</a>
-                    </div>
-                    <!-- /wp:button -->
-                </div>
-            <!-- /wp:buttons -->
+            
         </div>
         <!-- /wp:group -->
     </header>
