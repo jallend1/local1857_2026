@@ -5,7 +5,15 @@ add_action( 'init', 'jason1857_register_event_cards_block' );
 
 // Enqueue styles
 function jason1857_enqueue_styles() {
-    wp_enqueue_style( 'jason1857-style', get_stylesheet_uri() );
+    $style_path = get_theme_file_path( 'style.css' );
+    $version    = file_exists( $style_path ) ? filemtime( $style_path ) : wp_get_theme()->get( 'Version' );
+
+    wp_enqueue_style(
+        'jason1857-style',
+        get_stylesheet_uri(),
+        [],
+        $version
+    );
 }
 
 add_action( 'wp_enqueue_scripts', 'jason1857_enqueue_styles' );
