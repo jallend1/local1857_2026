@@ -930,6 +930,24 @@ a.news-grid-read-more {
   }
 }
 
+.contract-single {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+
+  h1 {
+    font-size: var(--font-xl);
+  }
+
+  h2 {
+    font-size: var(--font-lg);
+  }
+
+  h1 + p {
+    font-style: italic;
+  }
+}
+
 /* **************************** */
 /* *      Media Queries       * */
 /* **************************** */

@@ -1,0 +1,54 @@
+<!-- wp:template-part {"slug":"header","theme":"jason1857","tagName":"div"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"},"margin":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"}}},"layout":{"type":"constrained"}} -->
+<main
+  class="wp-block-group"
+  style="
+    margin-top: var(--wp--preset--spacing--0);
+    margin-bottom: var(--wp--preset--spacing--0);
+    padding-top: var(--wp--preset--spacing--0);
+    padding-bottom: var(--wp--preset--spacing--0);
+  "
+>
+  <!-- wp:group {"tagName":"section","align":"full","className":"subpage-hero","style":{"background":{"backgroundImage":{"url":"/wp-content/themes/jason1857/assets/images/backgrounds/unity.jpg","source":"file","title":"Red and white megaphone on blue background."},"backgroundPosition":"100% 50%","backgroundSize":"contain","backgroundAttachment":"scroll","backgroundRepeat":"no-repeat"}},"backgroundColor":"blue-darker","layout":{"type":"constrained"}} -->
+  <section
+    class="wp-block-group alignfull subpage-hero has-blue-darker-background-color has-background"
+  >
+    <!-- wp:group {"className":"container","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group container">
+      <!-- wp:breadcrumbs {"style":{"elements":{"link":{"color":{"text":"var:preset|color|cream-2"}}}},"textColor":"cream-2"} /-->
+
+      <!-- wp:post-title {"level":1,"className":"subpage__title","style":{"elements":{"link":{"color":{"text":"var:preset|color|green"}}}},"textColor":"green","fontSize":"lg"} /-->
+    </div>
+    <!-- /wp:group -->
+  </section>
+  <!-- /wp:group -->
+
+  <!-- wp:group {"tagName":"section","className":"section","layout":{"type":"constrained"}} -->
+  <section class="wp-block-group section">
+    <!-- wp:group {"className":"container","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group container">
+      <!-- wp:group {"tagName":"article","className":"contract-single","layout":{"type":"constrained"}} -->
+      <article class="wp-block-group contract-single">
+        <!-- wp:post-terms {"term":"category","className":"news-single__category"} /-->
+
+        <!-- wp:image {"lightbox":{"enabled":false},"linkDestination":"custom","className":"contract-image","style":{"layout":{"selfStretch":"fixedNoShrink","flexSize":"90px"}}} -->
+        <figure class="wp-block-image contract-image">
+          <img
+            src="/wp-content/themes/jason1857/assets/images/icons/contract.svg"
+            alt="Contract Icon"
+          />
+        </figure>
+        <!-- /wp:image -->
+
+        <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+      </article>
+      <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+  </section>
+  <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"jason1857","tagName":"div"} /-->

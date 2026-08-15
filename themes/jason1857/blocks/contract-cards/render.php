@@ -8,6 +8,24 @@ function jason1857_get_first_heading( string $content ): string {
     return '';
 }
 
+// Removes the first heading from the content so only the first sentence is displayed on the contract card
+function jason1857_remove_first_heading( string $content ): string {
+    return preg_replace( '/<h[1-6][^>]*>.*?<\/h[1-6]>/is', '', $content, 1 );
+}
+
+// Extracts first sentence of contract to render on contract acrd
+function jason1857_get_first_sentence( string $text ): string {
+    $text = trim( $text );
+    if ( '' === $text ) {
+        return '';
+    }
+    $pos = strpos( $text, '.' );
+    if ( false === $pos ) {
+        return $text; // No period found — return the whole thing.
+    }
+    return substr( $text, 0, $pos + 1 );
+}
+
 $contracts = new WP_Query( [
     'post_type'      => 'contract',
     'posts_per_page' => 3,
@@ -28,9 +46,17 @@ $i = 0;
     <?php while ( $contracts->have_posts() ) : $contracts->the_post(); ?>
         <?php
         $accent  = $accent_colors[ $i % count( $accent_colors ) ];
-        $heading = jason1857_get_first_heading( get_the_content() );
-        $source  = has_excerpt() ? get_the_excerpt() : wp_strip_all_tags( get_the_content() );
-        $excerpt = wp_trim_words( $source, 100 );
+        $content = get_the_content();
+        $heading = jason1857_get_first_heading( $content );
+
+        if ( has_excerpt() ) {
+            $source = get_the_excerpt();
+        } else {
+            $content_without_heading = jason1857_remove_first_heading( $content );
+            $source = wp_strip_all_tags( $content_without_heading );
+        }
+
+        $excerpt = jason1857_get_first_sentence( $source );
         $i++;
         ?>
         <div class="contract-card" style="--contract-accent: var(<?php echo esc_attr( $accent ); ?>);">
