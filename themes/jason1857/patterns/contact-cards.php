@@ -92,7 +92,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"contact-card-link"} -->
-<p class="contact-card-link">Search →</p>
+<p class="contact-card-link"><a href="shop-stewards/">Search →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

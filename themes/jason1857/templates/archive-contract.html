@@ -1,0 +1,49 @@
+<!-- wp:template-part {"slug":"header","theme":"jason1857","tagName":"div"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"},"margin":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0"}}},"layout":{"type":"constrained"}} -->
+<main
+  class="wp-block-group"
+  style="
+    margin-top: var(--wp--preset--spacing--0);
+    margin-bottom: var(--wp--preset--spacing--0);
+    padding-top: var(--wp--preset--spacing--0);
+    padding-bottom: var(--wp--preset--spacing--0);
+  "
+>
+  <!-- wp:group {"tagName":"section","align":"full","className":"subpage-hero","style":{"background":{"backgroundImage":{"url":"/wp-content/themes/jason1857/assets/images/backgrounds/white-umbrella.png","source":"file","title":"Red and white megaphone on blue background."},"backgroundPosition":"100% 50%","backgroundSize":"contain","backgroundAttachment":"scroll","backgroundRepeat":"no-repeat"}},"backgroundColor":"blue-darker","layout":{"type":"constrained"}} -->
+  <section
+    class="wp-block-group alignfull subpage-hero has-blue-darker-background-color has-background"
+  >
+    <!-- wp:group {"className":"container","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group container">
+      <!-- wp:paragraph {"className":"crumbs","style":{"elements":{"link":{"color":{"text":"var:preset|color|rule"}}}},"textColor":"rule"} -->
+      <p class="crumbs has-rule-color has-text-color has-link-color">
+        <a href="/">Home</a> / Contracts
+      </p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:heading {"level":1,"className":"subpage-title","style":{"elements":{"link":{"color":{"text":"var:preset|color|green"}}}},"textColor":"green","fontSize":"lg"} -->
+      <h1
+        class="wp-block-heading subpage-title has-green-color has-text-color has-link-color has-lg-font-size"
+      >
+        Your Bargaining Agreements
+      </h1>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph {"className":"subpage-intro has-paper-color has-blue-darker-background-color has-text-color has-link-color has-sm-font-size","style":{"typography":{"textAlign":"left"}},"fontSize":"sm"} -->
+      <p
+        class="has-text-align-left subpage-intro has-paper-color has-blue-darker-background-color has-text-color has-link-color has-sm-font-size"
+      >
+        The foundation of your rights and protections as a union member.
+      </p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+  </section>
+  <!-- /wp:group -->
+
+  <!-- wp:jason1857/contract-cards /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"jason1857","tagName":"div"} /-->

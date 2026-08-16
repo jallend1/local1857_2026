@@ -14,7 +14,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Recommit  →</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/recommit">Recommit  →</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 

@@ -25,10 +25,14 @@
 			<!-- wp:buttons {"className":"hero-actions"} -->
 			<div class="wp-block-buttons hero-actions">
 				<!-- wp:button -->
-				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button btn btn-lg btn-green" href="/get-involved/">Get Involved →</a></div>
+					<div class="wp-block-button">
+						<a class="wp-block-button__link wp-element-button" href="/get-involved/">Get Involved →</a>
+					</div>
 				<!-- /wp:button -->
 				<!-- wp:button -->
-				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button btn-ghost btn" href="/about/">About Your Union</a></div>
+					<div class="wp-block-button">
+						<a class="wp-block-button__link wp-element-button" href="/about/">About Your Union</a>
+					</div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->

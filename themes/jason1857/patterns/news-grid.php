@@ -26,7 +26,7 @@
                 <div class="wp-block-buttons section-buttons">
                     <!-- wp:button -->
                     <div class="wp-block-button">
-                        <a class="wp-block-button__link wp-element-button">All News  →</a>
+                        <a class="wp-block-button__link wp-element-button" href="/news">All News  →</a>
                     </div>
                     <!-- /wp:button -->
                 </div>
