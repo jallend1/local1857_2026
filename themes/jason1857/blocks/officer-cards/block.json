@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "jason1857/officer-cards",
+  "title": "Officer Cards",
+  "category": "widgets",
+  "icon": "media-document",
+  "description": "Shows officer cards for custom post type 'officer'",
+  "textdomain": "jason1857",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

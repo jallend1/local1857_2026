@@ -176,29 +176,77 @@ add_action( 'after_switch_theme', function() {
 
 // TODO: Not used yet!!
 // Register custom post type for profiles
-function jason1857_register_profiles(){
+function jason1857_register_officers(){
     $labels = array(
-        'name' => 'Profiles',
-        'singular_name' => 'Profile',
-        'add_new' => 'Add New Profile',
-        'add_new_item' => 'Add New Profile',
-        'edit_item' => 'Edit Profile',
-        'new_item' => 'New Profile',
-        'view_item' => 'View Profile',
-        'search_items' => 'Search Profiles',
-        'not_found' => 'No profiles found',
-        'not_found_in_trash' => 'No profiles found in Trash',
+        'name'               => 'Officers',
+        'singular_name'      => 'Officer',
+        'add_new'            => 'Add New Officer',
+        'add_new_item'       => 'Add New Officer',
+        'edit_item'          => 'Edit Officer',
+        'new_item'           => 'New Officer',
+        'view_item'          => 'View Officer',
+        'search_items'       => 'Search Officers',
+        'not_found'          => 'No officers found',
+        'not_found_in_trash' => 'No officers found in Trash',
     );
 
     $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'has_archive' => true,
-        'supports' => array( 'title', 'editor', 'custom-fields' ),
+        'labels'        => $labels,
+        'public'        => true,
+        'has_archive'   => true,
+        'show_in_rest'  => true,
+        'supports'      => array( 'title', 'editor', 'thumbnail' ),
+        'menu_icon'     => 'dashicons-groups',
+        'template'      => array(
+            array( 'core/paragraph', array(
+                'placeholder' => 'Position',
+                'metadata'    => array(
+                    'bindings' => array(
+                        'content' => array(
+                            'source' => 'core/post-meta',
+                            'args'   => array( 'key' => 'position' ),
+                        ),
+                    ),
+                ),
+            ) ),
+            array( 'core/paragraph', array(
+                'placeholder' => 'Location',
+                'metadata'    => array(
+                    'bindings' => array(
+                        'content' => array(
+                            'source' => 'core/post-meta',
+                            'args'   => array( 'key' => 'location' ),
+                        ),
+                    ),
+                ),
+            ) ),
+        ),
+        'template_lock' => false,
     );
 
-    register_post_type( 'profile', $args );
+    register_post_type( 'officer', $args );
 }
+add_action( 'init', 'jason1857_register_officers' );
 
-add_action( 'init', 'jason1857_register_profiles' );
+function jason1857_register_officer_meta() {
+    register_post_meta( 'officer', 'position', array(
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+        'default'       => '',
+        'auth_callback' => function( $allowed, $meta_key, $post_id ) {
+            return current_user_can( 'edit_post', $post_id );
+        },
+    ) );
 
+    register_post_meta( 'officer', 'location', array(
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+        'default'       => '',
+        'auth_callback' => function( $allowed, $meta_key, $post_id ) {
+            return current_user_can( 'edit_post', $post_id );
+        },
+    ) );
+}
+add_action( 'init', 'jason1857_register_officer_meta' );
