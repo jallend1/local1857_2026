@@ -20,7 +20,6 @@ add_action( 'wp_enqueue_scripts', 'jason1857_enqueue_styles' );
 
 // Handle missing featured images in the news grid pattern
 function jason1857_handle_missing_featured_image( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
-    // Don't run this on Pages, yo
     if ( 'page' === get_post_type( $post_id ) ) {
         return $html;
     }
@@ -29,7 +28,12 @@ function jason1857_handle_missing_featured_image( $html, $post_id, $post_thumbna
         return $html;
     }
 
-    // No featured image set — look for the first image in the post content
+    // Checking get_queried_object_id rather than just is_singular so any kind 
+    // of related posts block keeps the fallback image approach
+    if ( is_singular( 'post' ) && get_queried_object_id() === $post_id ) {
+        return $html;
+    }
+
     $first_image_url = jason1857_get_first_content_image( $post_id );
 
     if ( $first_image_url ) {
@@ -38,14 +42,12 @@ function jason1857_handle_missing_featured_image( $html, $post_id, $post_thumbna
         </div>';
     }
 
-    // No featured image and no in-content images — fall back to the default icon
     $icon_url = get_template_directory_uri() . '/assets/images/icon-1857-update.png';
     return '<div class="news-card-image-placeholder">
         <img src="' . esc_url( $icon_url ) . '" alt="News Update" class="news-card-placeholder-icon" />
     </div>';
 }
 add_filter( 'post_thumbnail_html', 'jason1857_handle_missing_featured_image', 10, 5 );
-
 // Get the first image and cache it tyo speed things up a bit
 function jason1857_get_first_content_image( $post_id ) {
     $cached = get_post_meta( $post_id, '_jason1857_first_image', true );
@@ -124,6 +126,53 @@ function jason1857_register_contracts() {
 }
 
 add_action( 'init', 'jason1857_register_contracts' );
+
+// On theme activation, set up the primary nav menu with my preferred links
+add_action( 'after_switch_theme', function() {
+    $slugs = [
+        'about'        => 'About',
+        'news'         => 'News',
+        'get-involved' => 'Get Involved',
+        'resources'    => 'Resources',
+        'contact'      => 'Contact',
+    ];
+
+    $blocks = '';
+    foreach ( $slugs as $slug => $label ) {
+        $page = get_page_by_path( $slug, OBJECT, 'page' );
+
+        if ( ! $page ) {
+            // If no page exists, skip it
+            continue;
+        } else {
+            $page_id = $page->ID;
+        }
+
+        $blocks .= sprintf(
+            '<!-- wp:navigation-link {"label":"%s","type":"page","id":%d,"url":"%s","kind":"post-type"} /-->',
+            esc_attr( $label ),
+            $page_id,
+            esc_url( get_permalink( $page_id ) )
+        );
+    }
+
+    $nav_slug  = 'jason1857-primary-nav';
+    $nav_title = 'jason1857 Primary';
+    // Only create nav if one doesn't already exist!
+    $existing = get_page_by_path( $nav_slug, OBJECT, 'wp_navigation' );
+
+    if ( ! $existing ) {
+        $nav_id = wp_insert_post( [
+            'post_title'   => $nav_title,
+            'post_name'    => $nav_slug,
+            'post_type'    => 'wp_navigation',
+            'post_status'  => 'publish',
+            'post_content' => $blocks, // built as before
+        ] );
+    } else {
+        $nav_id = $existing->ID;
+    }
+} );
 
 // TODO: Not used yet!!
 // Register custom post type for profiles

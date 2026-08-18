@@ -557,6 +557,21 @@ section > div {
   }
 }
 
+/* Expands the post-title link to cover the entire news card */
+.news-card .wp-block-post-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Keeps category and read more clickable directly */
+.news-card-category a,
+.news-grid-read-more a {
+  position: relative;
+  z-index: 2;
+}
+
 .news-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
@@ -566,6 +581,7 @@ section > div {
 .news-card-header {
   padding: 0;
   overflow: hidden;
+  position: static;
 
   figure {
     height: 100%;
@@ -586,6 +602,7 @@ section > div {
 
 .news-card-text {
   overflow: hidden;
+  position: static;
   padding: 0 1rem;
 }
 

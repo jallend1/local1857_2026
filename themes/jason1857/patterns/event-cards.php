@@ -20,14 +20,14 @@
 
         <!-- wp:group {"className":"section-sub-container"} -->
         <div class="wp-block-group section-sub-container"><!-- wp:paragraph {"className":"section-sub","fontSize":"sm"} -->
-            <p class="section-sub has-sm-font-size">Pulled live from the Local 1857 public Google Calendar</p>
+            <p class="section-sub has-sm-font-size">Pulled from the Local 1857 public Google Calendar</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:buttons {"className":"section-buttons"} -->
                 <div class="wp-block-buttons section-buttons">
                     <!-- wp:button -->
                     <div class="wp-block-button">
-                        <a class="wp-block-button__link wp-element-button">Full Calendar  →</a>
+                        <a class="wp-block-button__link wp-element-button" href="/events">Full Calendar  →</a>
                     </div>
                     <!-- /wp:button -->
                 </div>
