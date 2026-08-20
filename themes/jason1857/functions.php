@@ -100,6 +100,11 @@ function jason1857_register_contract_cards_block() {
 
 add_action( 'init', 'jason1857_register_contract_cards_block' );
 
+function jason1857_register_officer_cards_block() {
+    register_block_type( __DIR__ . '/blocks/officer-cards' );
+}
+add_action( 'init', 'jason1857_register_officer_cards_block' );
+
 // Register custom post type for contracts
 function jason1857_register_contracts() {
     $labels = array(
@@ -174,7 +179,6 @@ add_action( 'after_switch_theme', function() {
     }
 } );
 
-// TODO: Not used yet!!
 // Register custom post type for profiles
 function jason1857_register_officers(){
     $labels = array(
@@ -195,7 +199,7 @@ function jason1857_register_officers(){
         'public'        => true,
         'has_archive'   => true,
         'show_in_rest'  => true,
-        'supports'      => array( 'title', 'editor', 'thumbnail' ),
+        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
         'menu_icon'     => 'dashicons-groups',
         'template'      => array(
             array( 'core/paragraph', array(
@@ -248,5 +252,85 @@ function jason1857_register_officer_meta() {
             return current_user_can( 'edit_post', $post_id );
         },
     ) );
+
+        register_post_meta( 'officer', 'bio', array(
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'string',
+        'default'       => '',
+        'auth_callback' => function( $allowed, $meta_key, $post_id ) {
+            return current_user_can( 'edit_post', $post_id );
+        },
+    ) );
 }
 add_action( 'init', 'jason1857_register_officer_meta' );
+
+
+// Strategy for identifying executive officers, just not sure it's the best yet....
+function jason1857_register_officer_executive_meta() {
+    register_post_meta( 'officer', 'is_executive', array(
+        'show_in_rest'  => true,
+        'single'        => true,
+        'type'          => 'boolean',
+        'default'       => false,
+        'auth_callback' => function( $allowed, $meta_key, $post_id ) {
+            return current_user_can( 'edit_post', $post_id );
+        },
+    ) );
+}
+add_action( 'init', 'jason1857_register_officer_executive_meta' );
+
+function jason1857_add_executive_meta_box() {
+    add_meta_box(
+        'jason1857_executive_box',
+        'Executive Officer',
+        'jason1857_render_executive_meta_box',
+        'officer',
+        'side',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'jason1857_add_executive_meta_box' );
+
+function jason1857_render_executive_meta_box( $post ) {
+    wp_nonce_field( 'jason1857_save_executive_meta', 'jason1857_executive_nonce' );
+    $checked = get_post_meta( $post->ID, 'is_executive', true );
+    ?>
+    <label>
+        <input type="checkbox" name="jason1857_is_executive" value="1" <?php checked( $checked, true ); ?> />
+        This officer holds an executive position
+    </label>
+    <?php
+}
+
+function jason1857_save_executive_meta( $post_id ) {
+    if ( ! isset( $_POST['jason1857_executive_nonce'] ) ||
+         ! wp_verify_nonce( $_POST['jason1857_executive_nonce'], 'jason1857_save_executive_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+    update_post_meta( $post_id, 'is_executive', isset( $_POST['jason1857_is_executive'] ) );
+}
+add_action( 'save_post_officer', 'jason1857_save_executive_meta' );
+
+
+// Gets a fallback image for an officer if they don't got a pic
+function jason1857_get_officer_fallback_image( int $post_id ): array {
+    $cached = get_post_meta( $post_id, '_jason1857_fallback_animal', true );
+
+    if ( empty( $cached ) ) {
+        $animals = [ 'Bee', 'Cow', 'Dolphin', 'Duck', 'Fish', 'Giraffe', 'Horse', 'Ladybug', 'Lion', 'Squirrel', 'Swan', "WhiteTiger" ];
+        $cached  = $animals[ array_rand( $animals ) ];
+        update_post_meta( $post_id, '_jason1857_fallback_animal', $cached );
+    }
+
+    return [
+        'url' => get_theme_file_uri( 'assets/images/leadership/' . $cached . '.webp' ),
+        'alt' => $cached . ' illustration',
+    ];
+}
