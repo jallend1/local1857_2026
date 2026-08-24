@@ -987,6 +987,7 @@ footer {
 
   img {
     min-width: 80px;
+    max-height: 90px;
   }
 }
 
@@ -1111,6 +1112,19 @@ footer {
     padding: 0.4rem 1.1rem;
     font-size: 0.85rem;
     white-space: nowrap;
+  }
+
+  /* Styling for hamburger modal */
+  .wp-block-navigation__responsive-dialog {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 1rem;
+  }
+
+  .wp-block-navigation__responsive-dialog .wp-block-navigation-item a {
+    color: var(--ink);
+    font-size: 1.25rem;
+    font-weight: 600;
   }
 }
 
