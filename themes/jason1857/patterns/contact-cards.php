@@ -74,7 +74,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"contact-card-link"} -->
-<p class="contact-card-link">Sign Up →</p>
+<p class="contact-card-link"><a href="/watercooler/">Sign Up →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

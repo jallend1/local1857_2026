@@ -1011,22 +1011,24 @@ a.news-grid-read-more {
 .jason1857-officer-cards {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, 280px);
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
 }
 
 .officer-card {
-  height: 300px;
+  /* height: 200px; */
   display: grid;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 1fr auto;
   text-align: center;
   background: var(--paper);
   border-radius: var(--radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: var(--gutter);
+  /* padding: var(--gutter); */
+  padding: 1rem;
 }
 
 .officer-card header {
-  height: 100%;
+  height: 100px;
   overflow: hidden;
 }
 
