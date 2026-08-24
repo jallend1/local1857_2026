@@ -1,29 +1,33 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-function jason1857_get_first_heading( string $content ): string {
-    if ( preg_match( '/<h[1-6][^>]*>(.*?)<\/h[1-6]>/is', $content, $m ) ) {
-        return trim( wp_strip_all_tags( $m[1] ) );
-    }
-    return '';
-}
-
-// Removes the first heading from the content so only the first sentence is displayed on the contract card
-function jason1857_remove_first_heading( string $content ): string {
-    return preg_replace( '/<h[1-6][^>]*>.*?<\/h[1-6]>/is', '', $content, 1 );
-}
-
-// Extracts first sentence of contract to render on contract acrd
-function jason1857_get_first_sentence( string $text ): string {
-    $text = trim( $text );
-    if ( '' === $text ) {
+if ( ! function_exists( 'jason1857_get_first_heading' ) ) {
+    function jason1857_get_first_heading( string $content ): string {
+        if ( preg_match( '/<h[1-6][^>]*>(.*?)<\/h[1-6]>/is', $content, $m ) ) {
+            return trim( wp_strip_all_tags( $m[1] ) );
+        }
         return '';
     }
-    $pos = strpos( $text, '.' );
-    if ( false === $pos ) {
-        return $text; // No period found — return the whole thing.
+}
+
+if ( ! function_exists( 'jason1857_remove_first_heading' ) ) {
+    function jason1857_remove_first_heading( string $content ): string {
+        return preg_replace( '/<h[1-6][^>]*>.*?<\/h[1-6]>/is', '', $content, 1 );
     }
-    return substr( $text, 0, $pos + 1 );
+}
+
+if ( ! function_exists( 'jason1857_get_first_sentence' ) ) {
+    function jason1857_get_first_sentence( string $text ): string {
+        $text = trim( $text );
+        if ( '' === $text ) {
+            return '';
+        }
+        $pos = strpos( $text, '.' );
+        if ( false === $pos ) {
+            return $text;
+        }
+        return substr( $text, 0, $pos + 1 );
+    }
 }
 
 $contracts = new WP_Query( [

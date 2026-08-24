@@ -934,6 +934,10 @@ a.news-grid-read-more {
 /* *       Site Footer        * */
 /* ***************************** */
 
+footer {
+  margin: 0;
+}
+
 .site-footer {
   color: var(--cream);
   padding: 2rem 1rem;
