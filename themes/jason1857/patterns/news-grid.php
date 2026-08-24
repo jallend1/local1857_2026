@@ -43,7 +43,7 @@
             <div class="wp-block-group news-card">
                 <!-- wp:group {"className":"news-card-header","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group news-card-header">
-                    <!-- wp:post-featured-image /-->
+                    <!-- wp:post-featured-image {"scale":"contain"} /-->
                     <!-- wp:post-terms {"term":"category", "className":"news-card-category"} /-->
                 </div>
                 <!-- /wp:group -->
