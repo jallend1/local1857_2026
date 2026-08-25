@@ -1011,6 +1011,85 @@ footer {
 }
 
 /* **************************** */
+/* *         Cards            * */
+/* **************************** */
+
+.cards-container {
+  gap: 2rem;
+}
+
+.card {
+  position: relative; /* For the stretched-link */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.card-icon {
+  margin: 0;
+}
+
+.card-icon img {
+  height: 80px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.card-text {
+  flex-grow: 1;
+  padding: 0 1.5rem 1rem;
+  text-align: center;
+}
+
+.card-text h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.card-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+
+.card .wp-block-buttons {
+  margin-top: auto;
+  padding: 0 1.5rem 1.5rem;
+  justify-content: center;
+}
+
+.card .stretched-link a {
+  position: absolute;
+  inset: 0;
+}
+.card .stretched-link .wp-block-button__link {
+  position: relative;
+  z-index: 1;
+}
+
+/* **************************** */
 /* *      Officer Cards       * */
 /* **************************** */
 
@@ -1127,34 +1206,45 @@ footer {
     font-size: 1.25rem;
     font-weight: 600;
   }
-}
 
-.subpage-hero {
-  padding: 0 1rem;
-}
-
-.news-list-grid {
-  max-width: 1240px;
-  margin: auto;
-  padding: 0 1rem 1rem 1rem;
-}
-
-.news-single__media {
-  .news-card-image-placeholder {
-    height: 400px;
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
-}
 
-.news-single__nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 2rem;
-}
+  .card {
+    max-width: 100%;
+    width: 100%;
+  }
 
-.news-single__prev,
-.news-single__next {
-  margin-top: 2rem;
+  .subpage-hero {
+    padding: 0 1rem;
+  }
+
+  .news-list-grid {
+    max-width: 1240px;
+    margin: auto;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .news-single__media {
+    .news-card-image-placeholder {
+      height: 400px;
+    }
+  }
+
+  .news-single__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .news-single__prev,
+  .news-single__next {
+    margin-top: 2rem;
+  }
 }
 
 /* Slightly wider breakpoint: keep search visible, just tighten spacing */
