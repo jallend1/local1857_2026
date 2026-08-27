@@ -20,7 +20,7 @@
 			<h1 class="wp-block-heading hero-title">Stronger<br><span class="accent">Together.</span></h1>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"className":"hero-sub"} -->
-			<p class="hero-sub">We are hundreds of King County Library System workers — pages, librarians, facilities crew, and staff — building power on the job for fair wages, safe workplaces, and the libraries our communities deserve.</p>
+			<p class="hero-sub">We are hundreds of King County Library System workers building power on the job for fair wages, safe workplaces, and the libraries our communities deserve.</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:buttons {"className":"hero-actions"} -->
 			<div class="wp-block-buttons hero-actions">

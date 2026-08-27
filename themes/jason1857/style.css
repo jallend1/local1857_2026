@@ -316,6 +316,7 @@ a:hover {
   background: var(--blue-darker);
   color: var(--cream);
   padding: 0;
+  margin-top: 0;
   background:
     radial-gradient(
       ellipse at top left,
@@ -328,7 +329,7 @@ a:hover {
     margin: auto;
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr 1.2fr;
     /* min-height: 580px; */
   }
 
@@ -383,6 +384,7 @@ a:hover {
     max-width: 480px;
     /* margin: 0 0 40px; */
     padding: 1rem 0;
+    text-align: center;
   }
 
   .hero-actions {
@@ -1245,6 +1247,18 @@ footer {
   .news-single__next {
     margin-top: 2rem;
   }
+
+  .site-footer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .site-footer__affiliates {
+    border-bottom: 1px solid var(--cream);
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
 }
 
 /* Slightly wider breakpoint: keep search visible, just tighten spacing */
@@ -1263,7 +1277,7 @@ footer {
     grid-template-columns: 1fr;
   }
   .hero--main .hero-image-wrap {
-    min-height: 280px;
+    height: 280px;
     order: -1;
   }
   .hero--main .hero-text {
