@@ -1017,15 +1017,19 @@ footer {
 /* **************************** */
 
 .cards-container {
+  display: flex;
   gap: 2rem;
+  align-items: stretch;
 }
 
 .card {
   position: relative; /* For the stretched-link */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   max-width: 200px;
+  height: 100%;
   background-color: #ffffff;
   border-radius: 8px;
   overflow: hidden;

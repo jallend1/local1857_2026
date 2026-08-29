@@ -15,7 +15,7 @@
 		<!-- wp:group {"className":"card-header","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group card-header">
 			<!-- wp:image {"sizeSlug":"large","className":"card-icon","scale":"contain"} -->
-			<figure class="wp-block-image size-large card-icon"><img src="https://placehold.co/200x200" alt=""/></figure>
+			<figure class="wp-block-image size-large card-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/graduation-cap.png' ); ?>" alt="Graduation Cap" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:group -->
@@ -36,7 +36,7 @@
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"stretched-link"} -->
 			<div class="wp-block-button stretched-link">
-				<a class="wp-block-button__link wp-element-button" href="#">Learn More</a>
+				<a class="wp-block-button__link wp-element-button" href="#">Read More</a>
 			</div>
 			<!-- /wp:button -->
 		</div>
@@ -49,7 +49,7 @@
 		<!-- wp:group {"className":"card-header","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group card-header">
 			<!-- wp:image {"sizeSlug":"large","className":"card-icon","scale":"contain"} -->
-			<figure class="wp-block-image size-large card-icon"><img src="https://placehold.co/200x200" alt=""/></figure>
+			<figure class="wp-block-image size-large card-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/glasses.png' ); ?>" alt="Glasses on some books" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:group -->
@@ -70,7 +70,7 @@
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"stretched-link"} -->
 			<div class="wp-block-button stretched-link">
-				<a class="wp-block-button__link wp-element-button" href="#">Learn More</a>
+				<a class="wp-block-button__link wp-element-button" href="#">Read More</a>
 			</div>
 			<!-- /wp:button -->
 		</div>
@@ -83,7 +83,8 @@
 		<!-- wp:group {"className":"card-header","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group card-header">
 			<!-- wp:image {"sizeSlug":"large","className":"card-icon","scale":"contain"} -->
-			<figure class="wp-block-image size-large card-icon"><img src="https://placehold.co/200x200" alt=""/></figure>
+			<figure class="wp-block-image size-large card-icon"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/library.png' ); ?>" alt="A Library" /></figure>
+			
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:group -->
@@ -104,7 +105,7 @@
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"stretched-link"} -->
 			<div class="wp-block-button stretched-link">
-				<a class="wp-block-button__link wp-element-button" href="#">Learn More</a>
+				<a class="wp-block-button__link wp-element-button" href="#">Read More</a>
 			</div>
 			<!-- /wp:button -->
 		</div>
