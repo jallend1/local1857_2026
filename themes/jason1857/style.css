@@ -474,6 +474,14 @@ a:hover {
   }
 }
 
+.subpage-hero {
+  padding: 0.25rem;
+}
+
+.subpage-intro {
+  background: transparent;
+}
+
 .section-header {
   width: 100%;
   gap: 0rem;
@@ -1224,8 +1232,8 @@ footer {
     width: 100%;
   }
 
-  .subpage-hero {
-    padding: 0 1rem;
+  section.subpage-hero {
+    padding: 0;
   }
 
   .news-list-grid {
