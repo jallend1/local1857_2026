@@ -133,51 +133,61 @@ function jason1857_register_contracts() {
 add_action( 'init', 'jason1857_register_contracts' );
 
 // On theme activation, set up the primary nav menu with my preferred links
-add_action( 'after_switch_theme', function() {
+add_action( 'after_switch_theme', 'jason1857_register_primary_nav' );
+
+function jason1857_register_primary_nav() {
+    $nav_slug = 'jason1857-primary-nav';
+    $existing = get_page_by_path( $nav_slug, OBJECT, 'wp_navigation' );
+
+    // Bail only if it exists *and* has links.
+    if ( $existing && '' !== trim( $existing->post_content ) ) {
+        return;
+    }
+
     $slugs = [
         'about'        => 'About',
         'news'         => 'News',
         'get-involved' => 'Get Involved',
-        'resources'    => 'Resources',
+        'events'       => 'Events',
         'contact'      => 'Contact',
     ];
 
     $blocks = '';
     foreach ( $slugs as $slug => $label ) {
         $page = get_page_by_path( $slug, OBJECT, 'page' );
-
         if ( ! $page ) {
-            // If no page exists, skip it
             continue;
-        } else {
-            $page_id = $page->ID;
         }
 
-        $blocks .= sprintf(
-            '<!-- wp:navigation-link {"label":"%s","type":"page","id":%d,"url":"%s","kind":"post-type"} /-->',
-            esc_attr( $label ),
-            $page_id,
-            esc_url( get_permalink( $page_id ) )
-        );
+        $attrs = [
+            'label' => $label,
+            'type'  => 'page',
+            'id'    => (int) $page->ID,
+            'url'   => get_permalink( $page ),
+            'kind'  => 'post-type',
+        ];
+
+        $blocks .= '<!-- wp:navigation-link '
+            . wp_json_encode( $attrs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
+            . ' /-->';
     }
 
-    $nav_slug  = 'jason1857-primary-nav';
-    $nav_title = 'jason1857 Primary';
-    // Only create nav if one doesn't already exist!
-    $existing = get_page_by_path( $nav_slug, OBJECT, 'wp_navigation' );
+    if ( '' === $blocks ) {
+        return; // Nothing to build yet — try again on the next switch.
+    }
 
-    if ( ! $existing ) {
-        $nav_id = wp_insert_post( [
-            'post_title'   => $nav_title,
+    if ( $existing ) {
+        wp_update_post( [ 'ID' => $existing->ID, 'post_content' => $blocks ] );
+    } else {
+        wp_insert_post( [
+            'post_title'   => 'jason1857 Primary',
             'post_name'    => $nav_slug,
             'post_type'    => 'wp_navigation',
             'post_status'  => 'publish',
-            'post_content' => $blocks, // built as before
+            'post_content' => $blocks,
         ] );
-    } else {
-        $nav_id = $existing->ID;
     }
-} );
+}
 
 // Register custom post type for profiles
 function jason1857_register_officers(){
