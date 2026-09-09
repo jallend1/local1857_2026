@@ -724,7 +724,8 @@ a.news-grid-read-more {
 }
 
 .jason1857-event-cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   align-items: stretch; /* override WordPress's default flex alignment */
 }
@@ -733,31 +734,23 @@ a.news-grid-read-more {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
+  background: var(--paper);
   padding: 1.25rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
 }
 
 .jason1857-event-cards .event-title {
   margin-top: auto;
 }
 
-.jason1857-event-cards {
+/* .jason1857-event-cards {
   display: flex;
   gap: 1.5rem;
   align-items: stretch;
   padding-bottom: 1rem;
-}
-
-.event-card {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  background: var(--paper);
-  border-radius: var(--radius);
-  /* overflow: hidden; */
-  box-shadow: var(--shadow-sm);
-}
+} */
 
 .event-card__header {
   display: flex;
@@ -1314,6 +1307,10 @@ footer {
 
   .news-grid > ul > li:first-child .news-card {
     grid-template-rows: minmax(0, 4fr) auto auto;
+  }
+
+  .jason1857-event-cards {
+    grid-template-columns: 1fr;
   }
 
   .event-card,
