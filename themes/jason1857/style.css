@@ -519,6 +519,10 @@ a:hover {
   margin: 0;
 }
 
+.sub-section {
+  margin-left: 2rem !important;
+}
+
 .news-list-grid-item li .news-card {
   padding: 1rem;
   height: auto;
@@ -676,6 +680,27 @@ a.news-grid-read-more {
   padding: 1rem;
 }
 
+/* TODO: Essentially duplicate code from news card  */
+.news-single {
+  .news-card-header {
+    padding: 0;
+    background: var(--blue);
+  }
+
+  .news-card-header .wp-block-post-featured-image {
+    margin: 0;
+    height: 400px;
+    background: var(--blue);
+  }
+
+  .news-card-header .wp-block-post-featured-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
 .strip {
   margin: 0;
   padding: 0 1rem;
@@ -692,6 +717,7 @@ a.news-grid-read-more {
 
 .contact-card-row {
   align-items: stretch;
+  padding: 0px;
 }
 
 /* TODO: Duplicative styling with .news-card */

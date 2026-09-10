@@ -51,11 +51,16 @@
       <article class="wp-block-group news-single">
         <!-- wp:post-terms {"term":"category","className":"news-single__category"} /-->
 
+        <!-- wp:group {"className":"news-card-header","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group news-card-header">
+          <!-- wp:post-featured-image {"className":"news-single__media","scale":"contain"} /-->
+
+          <!-- wp:post-terms {"term":"category","className":"news-card-category"} /-->
+        </div>
+        <!-- /wp:group -->
         <!-- wp:post-title {"level":1,"className":"news-single__title"} /-->
 
         <!-- wp:post-date {"format":"F j, Y","metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"className":"news-single__date"} /-->
-
-        <!-- wp:post-featured-image {"className":"news-single__media"} /-->
 
         <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 
