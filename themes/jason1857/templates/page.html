@@ -48,9 +48,13 @@
           padding-bottom: var(--wp--preset--spacing--0);
         "
       >
-        <!-- wp:post-terms {"term":"category","className":"news-single__category"} /-->
+        <!-- wp:group {"className":"news-card-header","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group news-card-header">
+          <!-- wp:post-featured-image {"className":"news-single__media","scale":"contain"} /-->
 
-        <!-- wp:post-featured-image {"className":"news-single__media"} /-->
+          <!-- wp:post-terms {"term":"category","className":"news-card-category"} /-->
+        </div>
+        <!-- /wp:group -->
 
         <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
       </article>

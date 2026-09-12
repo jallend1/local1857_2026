@@ -680,11 +680,20 @@ a.news-grid-read-more {
   padding: 1rem;
 }
 
+/* TODO: A LOT of padding on the single post page? Might be issue for other pages? Keep eyes on it! */
+.section-single {
+  padding: 0;
+  .container {
+    padding: 0;
+  }
+}
+
 /* TODO: Essentially duplicate code from news card  */
 .news-single {
   .news-card-header {
     padding: 0;
     background: var(--blue);
+    max-height: 400px;
   }
 
   .news-card-header .wp-block-post-featured-image {

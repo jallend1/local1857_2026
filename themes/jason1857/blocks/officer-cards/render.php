@@ -12,7 +12,7 @@ if ( ! $officers->have_posts() ) {
     return;
 }
 
-// Build a plain array of officer data so we can sort by position priority.
+// Builds officer array to sort by position priority
 $officer_list = [];
 while ( $officers->have_posts() ) {
     $officers->the_post();

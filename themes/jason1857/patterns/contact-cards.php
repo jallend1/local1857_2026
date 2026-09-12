@@ -34,10 +34,10 @@
                 <h3 class="wp-block-heading contact-card-heading">Email Newsletter</h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"className":"contact-card-text"} -->
-                <p class="contact-card-text">Weekly missives from union leadership with bargaining news and meeting details.</p>
+                <p class="contact-card-text">Missives from union leadership with bargaining news, meeting details and other key information.</p>
             <!-- /wp:paragraph -->
             <!-- wp:paragraph {"className":"contact-card-link"} -->
-                <p class="contact-card-link">Sign Up →</p>
+                <p class="contact-card-link"><a href="/the-missive/">Sign Up →</a></p>
             <!-- /wp:paragraph -->
         </div>
     <!-- /wp:group -->
@@ -56,7 +56,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"contact-card-link"} -->
-<p class="contact-card-link">Sign Up →</p>
+<p class="contact-card-link"><a href="https://www.jotform.com/AFSCMELocal1857/text">Sign Up →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
