@@ -3,9 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $officers = new WP_Query( [
     'post_type'      => 'officer',
-    'posts_per_page' => -1, 
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'posts_per_page' => -1,
     'post_status'    => 'publish',
 ] );
 
@@ -14,34 +12,53 @@ if ( ! $officers->have_posts() ) {
     return;
 }
 
-// $executives = new WP_Query( [
-//     'post_type'   => 'officer',
-//     'meta_key'    => 'is_executive',
-//     'meta_value'  => '1',
-//     'posts_per_page' => -1,
-// ] );
+// Build a plain array of officer data so we can sort by position priority.
+$officer_list = [];
+while ( $officers->have_posts() ) {
+    $officers->the_post();
+    $officer_list[] = [
+        'id'       => get_the_ID(),
+        'position' => get_post_meta( get_the_ID(), 'position', true ),
+    ];
+}
+wp_reset_postdata();
 
-// $members_at_large = new WP_Query( [
-//     'post_type'   => 'officer',
-//     'meta_query'  => [
-//         [
-//             'key'     => 'is_executive',
-//             'compare' => 'NOT EXISTS',
-//         ],
-//     ],
-//     'posts_per_page' => -1,
-// ] );
+// Put these positions at the front since they're executive
+$priority_order = [ 'president', 'vice president', 'treasurer', 'secretary' ];
 
+function jason1857_officer_sort_rank( string $position, array $priority_order ): int {
+    $position_lower = strtolower( trim( $position ) );
+    foreach ( $priority_order as $index => $needle ) {
+        if ( str_starts_with( $position_lower, $needle ) ) {
+            return $index;
+        }
+    }
+    return count( $priority_order );
+}
+
+usort( $officer_list, function( $a, $b ) use ( $priority_order ) {
+    $rank_a = jason1857_officer_sort_rank( $a['position'], $priority_order );
+    $rank_b = jason1857_officer_sort_rank( $b['position'], $priority_order );
+
+    if ( $rank_a !== $rank_b ) {
+        return $rank_a <=> $rank_b;
+    }
+
+    return strcasecmp( $a['position'], $b['position'] );
+} );
 $accent_colors = [ '--blue-darker', '--green-darker', '--burgundy-deep' ];
 $i = 0;
 ?>
 <div <?php echo get_block_wrapper_attributes( [ 'class' => 'jason1857-officer-cards' ] ); ?>>
-    <?php while ( $officers->have_posts() ) : $officers->the_post(); ?>
-        <?php
+    <?php foreach ( $officer_list as $officer ) :
+        global $post;
+        $post = get_post( $officer['id'] );
+        setup_postdata( $post );
+
         $accent   = $accent_colors[ $i % count( $accent_colors ) ];
-        $position = get_post_meta( get_the_ID(), 'position', true );
+        $position = $officer['position'];
         $location = get_post_meta( get_the_ID(), 'location', true );
-        $bio      = get_post_meta( get_the_ID(), 'bio', true ); 
+        $bio      = get_post_meta( get_the_ID(), 'bio', true );
         $i++;
         ?>
         <div class="officer-card" style="--officer-accent: var(<?php echo esc_attr( $accent ); ?>);">
@@ -72,5 +89,5 @@ $i = 0;
             <?php endif; ?>
         </main>
     </div>
-    <?php endwhile; wp_reset_postdata(); ?>
+    <?php endforeach; wp_reset_postdata(); ?>
 </div>
