@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "jason1857/stewards-list",
+  "title": "Stewards List (Card Grid)",
+  "category": "jason1857",
+  "icon": "groups",
+  "description": "Displays all Steward entries grouped by region in a responsive card grid. Always reflects the current contacts and regions \u2014 nothing to keep in sync manually.",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

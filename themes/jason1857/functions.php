@@ -132,6 +132,110 @@ function jason1857_register_contracts() {
 
 add_action( 'init', 'jason1857_register_contracts' );
 
+// Register custom post type for stewards
+function jason1857_register_stewards() {
+
+		register_post_type(
+			'steward',
+			array(
+				'labels'          => array(
+					'name'          => __( 'Stewards', 'jason1857' ),
+					'singular_name' => __( 'Steward', 'jason1857' ),
+					'add_new_item'  => __( 'Add New Steward', 'jason1857' ),
+					'edit_item'     => __( 'Edit Steward', 'jason1857' ),
+					'all_items'     => __( 'All Stewards', 'jason1857' ),
+					'search_items'  => __( 'Search Stewards', 'jason1857' ),
+					'not_found'     => __( 'No stewards found', 'jason1857' ),
+					'menu_name'     => __( 'Stewards', 'jason1857' ),
+				),
+				'public'          => false,
+				'show_ui'         => true,
+				'show_in_menu'    => true,
+				'show_in_rest'    => true,
+				'menu_icon'       => 'dashicons-groups',
+				'supports'        => array( 'title' ),
+				'has_archive'     => false,
+				'rewrite'         => false,
+				'capability_type' => 'post',
+			)
+		);
+
+		register_taxonomy(
+			'region',
+			'steward',
+			array(
+				'labels'            => array(
+					'name'          => __( 'Regions', 'jason1857' ),
+					'singular_name' => __( 'Region', 'jason1857' ),
+					'add_new_item'  => __( 'Add New Region', 'jason1857' ),
+					'search_items'  => __( 'Search Regions', 'jason1857' ),
+				),
+				'hierarchical'      => true,
+				'public'            => false,
+				'show_ui'           => true,
+				'show_in_rest'      => true,
+				'show_admin_column' => true,
+			)
+		);
+	}
+add_action( 'init', 'jason1857_register_stewards' );
+
+if ( ! function_exists( 'jason1857_register_region_directory_category' ) ) {
+
+	function jason1857_register_region_directory_category( $categories ) {
+
+		foreach ( $categories as $category ) {
+			if ( 'jason1857' === $category['slug'] ) {
+				return $categories; // Already registered by another custom block.
+			}
+		}
+
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug'  => 'jason1857',
+					'title' => __( 'Jason1857', 'jason1857' ),
+				),
+			)
+		);
+	}
+
+	add_filter( 'block_categories_all', 'jason1857_register_region_directory_category' );
+}
+
+if ( ! function_exists( 'jason1857_register_region_directory_assets' ) ) {
+
+	function jason1857_register_region_directory_assets() {
+
+		wp_register_script(
+			'jason1857-stewards-list-editor',
+			get_theme_file_uri( 'blocks/stewards-list/index.js' ),
+			array( 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-server-side-render' ),
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
+	}
+
+	add_action( 'init', 'jason1857_register_region_directory_assets' );
+}
+
+if ( ! function_exists( 'jason1857_register_region_directory_block' ) ) {
+
+	function jason1857_register_region_directory_block() {
+
+		register_block_type(
+			get_theme_file_path( 'blocks/stewards-list' ),
+			array(
+				'editor_script' => 'jason1857-stewards-list-editor',
+			)
+		);
+	}
+
+	add_action( 'init', 'jason1857_register_region_directory_block' );
+}
+
+
 // On theme activation, set up the primary nav menu with my preferred links
 add_action( 'after_switch_theme', 'jason1857_register_primary_nav' );
 
