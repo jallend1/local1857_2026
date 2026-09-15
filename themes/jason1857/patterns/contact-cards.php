@@ -27,7 +27,7 @@
 <div class="wp-block-group contact-card-row"><!-- wp:group {"className":"contact-card","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card"><!-- wp:group {"className":"contact-card-header","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card-header"><!-- wp:image {"className":"contact-card-image"} -->
-<figure class="wp-block-image contact-card-image"><img src="https://kclsprime.lndo.site/wp-content/themes/jason1857/assets/images/icons/email.svg" alt="Email Icon"/></figure>
+<figure class="wp-block-image contact-card-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/email.svg' ); ?>" alt="Email Icon"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"className":"contact-card-heading"} -->
@@ -49,7 +49,7 @@
 <!-- wp:group {"className":"contact-card","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card"><!-- wp:group {"className":"contact-card-header","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card-header"><!-- wp:image {"className":"contact-card-image"} -->
-<figure class="wp-block-image contact-card-image"><img src="https://kclsprime.lndo.site/wp-content/themes/jason1857/assets/images/icons/chat.svg" alt="Text Alerts Icon"/></figure>
+<figure class="wp-block-image contact-card-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/chat.svg' ); ?>" alt="Text Alerts Icon"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"className":"contact-card-heading"} -->
@@ -71,7 +71,7 @@
 <!-- wp:group {"className":"contact-card","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card"><!-- wp:group {"className":"contact-card-header","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card-header"><!-- wp:image {"className":"contact-card-image"} -->
-<figure class="wp-block-image contact-card-image"><img src="https://kclsprime.lndo.site/wp-content/themes/jason1857/assets/images/icons/watercooler.svg" alt="Watercooler Icon"/></figure>
+<figure class="wp-block-image contact-card-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/watercooler.svg' ); ?>" alt="Watercooler Icon"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"className":"contact-card-heading"} -->
@@ -93,7 +93,7 @@
 <!-- wp:group {"className":"contact-card","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card"><!-- wp:group {"className":"contact-card-header","layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group contact-card-header"><!-- wp:image {"className":"contact-card-image"} -->
-<figure class="wp-block-image contact-card-image"><img src="https://kclsprime.lndo.site/wp-content/themes/jason1857/assets/images/icons/people.svg" alt="Find Your Steward Icon"/></figure>
+<figure class="wp-block-image contact-card-image"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/people.svg' ); ?>" alt="Find Your Steward Icon"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"className":"contact-card-heading"} -->
