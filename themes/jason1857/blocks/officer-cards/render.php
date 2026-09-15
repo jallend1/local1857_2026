@@ -81,7 +81,7 @@ $i = 0;
             <p class="officer-card__name"><?php the_title(); ?></p>
 
             <?php if ( ! empty( $location ) ) : ?>
-                <p class="officer-card__location">Work Location: <?php echo esc_html( $location ); ?></p>
+                <p class="officer-card__location"><?php echo esc_html( $location ); ?></p>
             <?php endif; ?>
 
             <?php if ( ! empty( $bio ) ) : ?>
