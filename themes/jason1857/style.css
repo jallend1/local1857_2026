@@ -478,10 +478,6 @@ a:hover {
   padding: 0.25rem;
 }
 
-.subpage-intro {
-  background: transparent;
-}
-
 .section-header {
   width: 100%;
   gap: 0rem;
@@ -1011,6 +1007,25 @@ a.news-grid-read-more {
 .contract-card__icon {
   width: 16px;
   height: 16px;
+}
+
+/* ***************************** */
+/* *        Stewards List      * */
+/* ***************************** */
+
+.stewards-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch; /* override WordPress's default flex alignment */
+}
+
+.region-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
 }
 
 /* ***************************** */

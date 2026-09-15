@@ -147,15 +147,21 @@ function jason1857_register_stewards() {
 					'search_items'  => __( 'Search Stewards', 'jason1857' ),
 					'not_found'     => __( 'No stewards found', 'jason1857' ),
 					'menu_name'     => __( 'Stewards', 'jason1857' ),
+					'archives'      => __( 'Stewards Directory', 'jason1857' ),
 				),
-				'public'          => false,
+				'public'          => true,
+                'publicly_queryable' => true,
 				'show_ui'         => true,
 				'show_in_menu'    => true,
 				'show_in_rest'    => true,
+                'show_in_nav_menus' => true,
 				'menu_icon'       => 'dashicons-groups',
 				'supports'        => array( 'title' ),
-				'has_archive'     => false,
-				'rewrite'         => false,
+				'has_archive'     => true,
+				'rewrite'         => array(
+					'slug'       => 'stewards',
+					'with_front' => false,
+				),
 				'capability_type' => 'post',
 			)
 		);
@@ -180,6 +186,7 @@ function jason1857_register_stewards() {
 	}
 add_action( 'init', 'jason1857_register_stewards' );
 
+// TODO: Region Directory block an apt name? Feels confusing.
 if ( ! function_exists( 'jason1857_register_region_directory_category' ) ) {
 
 	function jason1857_register_region_directory_category( $categories ) {
@@ -234,6 +241,16 @@ if ( ! function_exists( 'jason1857_register_region_directory_block' ) ) {
 
 	add_action( 'init', 'jason1857_register_region_directory_block' );
 }
+
+// Individual steward page has no content, so send them to the archive instead. Too hacky?
+function jason1857_redirect_single_steward() {
+		if ( is_singular( 'steward' ) ) {
+			wp_safe_redirect( get_post_type_archive_link( 'steward' ), 301 );
+			exit;
+		}
+	}
+
+	add_action( 'template_redirect', 'jason1857_redirect_single_steward' );
 
 
 // On theme activation, set up the primary nav menu with my preferred links
